@@ -1,0 +1,105 @@
+.friendRequests__main {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.577);
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & .friendRequests__main_modal {
+        position: relative;
+        box-sizing: border-box;
+        width: 700px;
+        height: 500px;
+        background-color: rgba(0, 0, 0, 0.748);
+
+        & .close__button {
+            position: absolute;
+            right: 25px;
+            top: 15px;
+            transform: scaleY(0.8);
+            font-size: 30px;
+            color: white;
+
+            &:hover {
+                cursor: pointer;
+                color: aqua;
+            }
+        }
+
+        & .friends__list {
+            height: 375px;
+            display: grid;
+            gap: 10px;
+            margin-top: 100px;
+            align-items: center;
+            justify-content: center;
+            overflow-y: scroll;
+            padding: 25px;
+            box-sizing: border-box;
+            &::-webkit-scrollbar {
+                width: 0px;  
+            }
+
+            & .friends__list_request {
+                width: 500px;
+                height: 200px;
+                border-radius: 25px;
+                background-color: white;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                & img {
+                    border-radius: 10px;
+                }
+
+                & .name {
+                    min-width: 200px;
+                }
+
+                & .settings {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    & .accept__button {
+                        width: 150px;
+                        height: 40px;
+                        font-size: 14px;
+                        border: 1px solid green;
+                        color: white;
+                        background-color: green;
+                        border-radius: 4px;
+                        
+                        &:hover {
+                            background-color: rgba(0, 128, 0, 0.874);
+                            cursor: pointer;
+                        }
+                    }
+                    & .decline__button {
+                        width: 150px;
+                        height: 40px;
+                        font-size: 14px;
+                        border: 1px solid red;
+                        color: white;
+                        background-color: rgba(255, 0, 0, 0.801);
+                        border-radius: 4px;
+                        
+                        &:hover {
+                            background-color: red;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}

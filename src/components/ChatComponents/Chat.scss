@@ -1,0 +1,113 @@
+.chat {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+
+    & .chat__main {
+        width: 800px;
+        height: 600px;
+        background-color: white;
+        box-sizing: border-box;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        position: relative;
+
+        & .chat__main_header {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.792);
+            width: 100%;
+            height: 50px;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            gap: 10px;
+
+            & img {
+                width: 30px;
+                height: 30px;
+                border-radius: 5px;
+            }
+        }
+
+        & .chat__chat__main_messages {
+            width: 100%;
+            height: 400px;
+            margin-top: 50px;
+            background-color: rgba(137, 43, 226, 0.325);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow-y: scroll;
+            box-sizing: border-box;
+            padding: 25px;
+
+            &::-webkit-scrollbar {
+                width: 5px;             
+            }
+            &::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0); 
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba(0, 0, 0, 0.792);    /* цвет плашки */
+                border-radius: 20px;       /* закругления плашки */
+                border: 3px solid rgba(255, 255, 255, 0);  /* padding вокруг плашки */
+            }
+
+            & .my__message {
+                position: relative;
+                left: 175px;
+                width: 500px;
+                min-height: 50px;
+                background-color: white;
+                border-radius: 10px;
+                box-sizing: border-box;
+                padding: 10px;
+            }
+            & .friend__message {
+                width: 500px;
+                min-height: 50px;
+                background-color: white;
+                border-radius: 10px;
+                box-sizing: border-box;
+                padding: 10px;
+            }
+        }
+
+        & .chat__main_settings {
+            display: flex;
+            gap: 10px;
+            position: absolute;
+            bottom: 50px;
+
+            & input {
+                width: 575px;
+                max-height: 40px;
+                border-radius: 0px;
+                outline: none;
+                border: 1px solid black;
+                border-radius: 4px;
+            }
+
+            & button {
+                width: 150px;
+                height: 40px;
+                font-size: 14px;
+                border: 1px solid orange;
+                color: black;
+                background-color: orange;
+                border-radius: 4px;
+                
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

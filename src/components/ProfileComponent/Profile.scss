@@ -1,0 +1,138 @@
+.profile {
+    width: 900px;
+    height: 600px;
+    background-color: white;
+    border-radius: 25px;
+    margin-top: 75px;
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    box-sizing: border-box;
+
+    & .user__main {
+        display: flex;
+        gap: 15px;
+    }
+    & .user__guest {
+        display: flex;
+        gap: 15px;
+    }
+    & .profile__avatar {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        
+        & img {
+            width: 200px;
+            height: 200px;
+            border-radius: 25px;
+        }
+    }
+
+    & .profile__data {
+        padding: 25px;
+        box-sizing: border-box;
+        width: 650px;
+        height: 200px;
+        border: 1px solid black;
+        border-radius: 10px;
+        font-size: 25px;
+
+        & .profile__data_header {
+            font-weight: bold;
+        }
+
+        & .profile__data_friends {
+            width: 150px;
+            height: 30px;
+            font-size: 16px;
+            padding: 5px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: orange;
+            border-radius: 5px;
+            color: black;
+            margin-top: 10px;
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgba(255, 166, 0, 0.801);
+            }
+        }
+    }
+
+    & .profile__settings {
+        width: 865px;
+        height: 300px;
+        border: 1px solid black;
+        position: absolute;
+        border-radius: 10px;
+        margin-top: 220px;
+        padding: 25px;
+        box-sizing: border-box; 
+        display: flex;
+        flex-direction: column;
+
+        & .profile__settings_header {
+            font-weight: bold;
+        }
+
+        & .profile__settings_buttons {
+            padding-top: 25px;
+            display: flex;
+            gap: 10px;
+
+            & button {
+                width: 150px;
+                height: 40px;
+                font-size: 14px;
+                border: 1px solid orange;
+                color: black;
+                background-color: orange;
+                border-radius: 4px;
+                
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            & .input__file {
+                position: relative;
+                display: inline-block;
+            }
+            & .input__file span {
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                outline: none;
+                text-decoration: none;
+                font-size: 16px;
+                vertical-align: middle;
+                color: black;
+                text-align: center;
+                border-radius: 4px;
+                background-color: orange;
+                line-height: 22px;
+                height: 40px;
+                width: 150px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                //padding: 10px 20px;
+                box-sizing: border-box;
+                border: none;
+                margin: 0;
+                transition: background-color 0.2s;
+            }
+            & .input__file input[type=file] {
+                position: absolute;
+                z-index: -1;
+                opacity: 0;
+                display: block;
+                width: 0;
+                height: 0;
+            }
+        }
+    }
+}

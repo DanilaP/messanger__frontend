@@ -1,0 +1,63 @@
+.people {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+
+    & .people__list {
+        width: 800px;
+        height: 600px;
+        background-color: white;
+        border-radius: 25px;
+        box-sizing: border-box;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            width: 0px;  
+        }
+
+        & .user {
+            display: flex;
+            gap: 25px;
+            font-size: 25px;
+            background-color: rgba(128, 128, 128, 0.149);
+            border-radius: 25px;
+            
+            & .user__avatar {
+                width: 160px;
+                height: 160px;
+                border-radius: 25px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            & .user__settings {
+                width: 100%;
+                border-radius: 25px;
+                box-sizing: border-box;
+                padding: 25px;
+                display: grid;
+
+                & button {
+                    width: 150px;
+                    height: 30px;
+                    border: 1px solid green;
+                    color: white;
+                    background-color: green;
+                    border-radius: 25px;
+                    
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

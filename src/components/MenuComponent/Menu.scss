@@ -1,0 +1,29 @@
+.menu {
+    width: 100vw;
+    height: 50px;
+    position: absolute;
+    display: flex;
+    color: white;
+    font-size: 20px;
+    background-color: rgb(62, 62, 170);
+    align-items: center;
+    padding-left: 30px;
+    box-sizing: border-box;
+    top: 0;
+
+    & .item {
+        width: auto;
+        height: 100%;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        transition: 0.25s;
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(6, 183, 232);
+        }
+    }
+}

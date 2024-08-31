@@ -1,0 +1,58 @@
+.messageList__main {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    & .messageList {
+        display: flex;
+        align-items: center;    
+        flex-direction: column;
+        padding: 25px;
+        box-sizing: border-box;
+        width: 800px;
+        height: 600px;
+        border-radius: 25px;
+        background-color: white;
+        margin-top: 100px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        &::-webkit-scrollbar {
+            width: 5px;             
+        }
+        &::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0); 
+            border-radius: 20px; 
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.792);
+            border-radius: 20px; 
+            border: 3px solid rgba(255, 255, 255, 0); 
+        }
+
+        & .messageList__dialog {
+            width: 750px;
+            min-height: 150px;
+            background-color: rgba(128, 128, 128, 0.299);
+            border-radius: 25px;
+            margin-bottom: 25px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgb(6, 183, 232);
+            }
+
+            & img {
+                width: 100px;
+                height: 100px;
+                border-radius: 25px;
+            }
+        }
+    }
+}
