@@ -6,6 +6,7 @@ export interface IUser {
     avatar?: string,
     friends?: string,
     friendRequests?: {id: string, name: string, status: string, avatar: string}[],
+    posts?: {id: number, image: string, text: string}[] | undefined,
 }
 export interface IStore {
     user: IUser

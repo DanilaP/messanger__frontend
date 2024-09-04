@@ -10,6 +10,8 @@ import { createPortal } from 'react-dom';
 import FriendsModal from './Modals/FriendsModal/FriendsModal';
 import store from '../../store';
 import { userCreator } from '../../ActionCreators/actionCreators';
+import CreatePostModal from './Modals/CreatePostModal/createPostModal';
+import PostsList from './PostsListComponent/PostsList';
 
 function Profile() {
 
@@ -39,6 +41,15 @@ function Profile() {
     }
 
     const openFriendRequestsModal = () => {
+        if (userData && userData.friendRequests?.length !== 0) {
+            openFriendRequestsModalAfterCondition();
+        } else if (guestData && guestData.friendRequests?.length !== 0) {
+            openFriendRequestsModalAfterCondition();
+        }
+        
+    }
+
+    const openFriendRequestsModalAfterCondition = () => {
         if (modalShown.isShown) {
             setModalShown({modalName: "", isShown: false});
         } else {
@@ -63,7 +74,18 @@ function Profile() {
         
     }
 
+    const createPostModalOpen = () => {
+        if (modalShown.isShown) {
+            setModalShown({modalName: "", isShown: false});
+        } else {
+            setModalShown({modalName: "CreatePostModal", isShown: true});
+        }
+    }
+
     useEffect(() => {
+        const body = document.querySelector('body');
+        body!.style.overflowY = modalShown.isShown ? 'hidden' : 'auto';
+
         if (modalShown.isShown === false && params.id === undefined) {
             $api.get(serverAdress + "/users/myData")
             .then((res) => {
@@ -105,35 +127,50 @@ function Profile() {
             createPortal(<FriendRequestsModal close={openFriendRequestsModal} friendRequests={userData?.friendRequests}/>, document.body)}
             {(modalShown.isShown && modalShown.modalName === "FriendsModal") && 
             createPortal(<FriendsModal friends={guestData === null ? userData?.friends : guestData?.friends} close = {openFriendsModal} /> , document.body)}
+            {(modalShown.isShown && modalShown.modalName === "CreatePostModal") && 
+            createPortal(<CreatePostModal close = {createPostModalOpen} /> , document.body)}
             {
                 (guestData === null) ? (
                 <div className='user__main'>
-                    <div className="profile__avatar">
-                        <img src = {userData?.avatar} />
-                    </div>
-                    <div className="profile__data">
-                        <div className="profile__data_name">{userData?.name}</div>
-                        <div onClick={openFriendsModal} className="profile__data_friends">Мои друзья: {userData?.friends?.length}</div>
-                        <div onClick={openFriendRequestsModal} className="profile__data_friends">Заявки в друзья: {userData?.friendRequests?.length}</div>
-                    </div>
-                    <div className="profile__settings">
-                        <div className="profile__settings_header">Управление аккаунтом</div>
-                        <div className="profile__settings_buttons">
-                            <label className="input__file">
-                                <input accept="image/*" onChange={(e) => changeProfileAvatar(e.target.files)} type="file" name="file"/>		
-                                <span>Сменить аватар</span>
-                            </label>
-                            <button onClick={logout}>Выйти из аккаунта</button>
-                        </div>
-                    </div>
-                </div>) : (
-                    <div className="user__guest">
+                    <div className="user__main__info">
                         <div className="profile__avatar">
-                            <img src = {guestData?.avatar} />
+                            <img src = {userData?.avatar} />
                         </div>
                         <div className="profile__data">
-                            <div className="profile__data_name">{guestData?.name}</div>
-                            <div onClick={openFriendsModal} className="profile__data_friends">Друзья: {guestData?.friends?.length}</div>
+                            <div className="profile__data_name">{userData?.name}</div>
+                            <div onClick={openFriendsModal} className="profile__data_friends">Мои друзья: {userData?.friends?.length}</div>
+                            <div onClick={openFriendRequestsModal} className="profile__data_friends">Заявки в друзья: {userData?.friendRequests?.length}</div>
+                        </div>
+                    </div>
+                    <div className="user__main__settings">
+                        <div className="profile__settings">
+                            <div className="profile__settings_buttons">
+                                <label className="input__file">
+                                    <input accept="image/*" onChange={(e) => changeProfileAvatar(e.target.files)} type="file" name="file"/>		
+                                    <span>Сменить аватар</span>
+                                </label>
+                                <button onClick={createPostModalOpen}>Написать пост</button>
+                                <button onClick={logout}>Выйти из аккаунта</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="user__main__posts">
+                        { (userData && userData.posts) ? <PostsList posts={userData.posts} /> : null}
+                    </div>
+                </div>
+                ) : (
+                    <div className="user__main">
+                       <div className="user__main__info">
+                            <div className="profile__avatar">
+                                <img src = {guestData?.avatar} />
+                            </div>
+                            <div className="profile__data">
+                                <div className="profile__data_name">{guestData?.name}</div>
+                                <div onClick={openFriendsModal} className="profile__data_friends">Друзья: {guestData?.friends?.length}</div>
+                            </div>
+                        </div>
+                        <div className="user__main__posts">
+                            { (guestData && guestData.posts) ? <PostsList posts={guestData.posts} /> : null}
                         </div>
                     </div>
                 )

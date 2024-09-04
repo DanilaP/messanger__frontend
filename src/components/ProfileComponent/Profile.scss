@@ -2,16 +2,36 @@
     width: 900px;
     height: 600px;
     background-color: white;
-    border-radius: 25px;
+    border-radius: 5px;
     margin-top: 75px;
     display: flex;
     justify-content: center;
     padding: 25px;
     box-sizing: border-box;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 5px;             
+    }
+    &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0); 
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.792);
+        border-radius: 20px;  
+        border: 3px solid rgba(255, 255, 255, 0); 
+    }
 
     & .user__main {
         display: flex;
+        flex-direction: column;
         gap: 15px;
+
+        & .user__main__info {
+            display: flex;
+            gap: 15px;
+        }
     }
     & .user__guest {
         display: flex;
@@ -65,11 +85,9 @@
 
     & .profile__settings {
         width: 865px;
-        height: 300px;
+        height: 90px;
         border: 1px solid black;
-        position: absolute;
         border-radius: 10px;
-        margin-top: 220px;
         padding: 25px;
         box-sizing: border-box; 
         display: flex;
@@ -80,7 +98,6 @@
         }
 
         & .profile__settings_buttons {
-            padding-top: 25px;
             display: flex;
             gap: 10px;
 
@@ -119,7 +136,6 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                //padding: 10px 20px;
                 box-sizing: border-box;
                 border: none;
                 margin: 0;

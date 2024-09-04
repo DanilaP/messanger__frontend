@@ -11,8 +11,8 @@ body {
   background-color: rgba(0, 0, 0, 0.9);
   background-image: url(./Images/background.png);
   background-size: auto;
-  background-repeat: no-repeat;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 code {

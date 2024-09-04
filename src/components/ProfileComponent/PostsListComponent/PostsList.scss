@@ -1,0 +1,38 @@
+.PostsList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 865px;
+
+    & .post {
+        border: 1px solid black;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 25px;
+        margin-bottom: 10px;
+        background-color: rgba(0, 0, 0, 0.782);
+        color: white;
+
+        & .post__image {
+            text-align: center;
+
+            & img {
+                max-width: 865px;
+                max-height: 400px;
+                border-radius: 10px;
+            }
+        }
+
+        & .post__text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+    }
+}
